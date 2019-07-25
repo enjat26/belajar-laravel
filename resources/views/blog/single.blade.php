@@ -7,8 +7,9 @@
     <p>ID Ke{{ $id }}</p>
     <a href="/blog">kembali</a>
     <ul>
-        @foreach($rows as $r)
-            {{ 'Judul Buku : '.$r->nama}}
-        @endforeach
+        Judul Buku :  {{ $rows->nama }}
+        {{-- @foreach($rows as $r)
+            {{ ''.$r->nama}}
+        @endforeach --}}
     </ul>
 @endsection
