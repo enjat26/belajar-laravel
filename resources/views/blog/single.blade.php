@@ -4,11 +4,11 @@
 
 @section('content')
     <h1>Belajar Controller</h1>
-    <p>Ini adalah link {{ $id }}</p>
-    <p>Nama {{ $nama }}</p>
+    <p>ID Ke{{ $id }}</p>
+    <a href="/blog">kembali</a>
     <ul>
-        @foreach($hewan as $h)
-            <li>{{ $h }}</li>
+        @foreach($rows as $r)
+            {{ 'Judul Buku : '.$r->nama}}
         @endforeach
     </ul>
 @endsection
