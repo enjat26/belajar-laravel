@@ -48,7 +48,7 @@ class blogController extends Controller
         // $blog = Blog::find(1);
         // $blog->delete();
         //delete pake destroy methode
-        Blog::destroy(['2','3']); //hapus id 2 dan 3
+        // Blog::destroy(['2','3']); //hapus id 2 dan 3
         $data['rows'] = Blog::all();
         return view('blog/blog',$data);
 
@@ -70,5 +70,39 @@ class blogController extends Controller
             // abort('404');
             // }
         return view('blog/single',$data);
+    }
+
+    public function create(){
+        $data['title'] = 'Form create';
+        return view('blog/formCreate',$data);
+    }
+    public function store(Request $request){
+        $simpan = Blog::create([
+            'nama' => $request['nama'],
+            'tahun' => $request['tahun']
+        ]);
+        if($simpan){
+            return redirect('/blog');
+        }
+    }
+    public function formEdit($id){
+        $data['title'] = 'Belajar Laravel - Form Edit';
+        $data['rows'] = Blog::find($id);
+        return view('blog/formEdit',$data);
+    }
+    public function upadate(Request $request,$id){
+        $update = Blog::where('id',$id)->update([
+            'nama' => $request['nama'],
+            'tahun' => $request['tahun'],
+        ]);
+        if($update){
+            echo 'Berhasil <a href="'.url('/blog').'">Kembali</a>';
+        }else {
+            echo 'gagal';
+        }
+    }
+    public function destroy($id){
+        Blog::destroy($id);
+        return redirect('/blog');
     }
 }

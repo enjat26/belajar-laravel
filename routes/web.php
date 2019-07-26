@@ -15,4 +15,13 @@ Route::get('/', function () {
     return view('blog/home');
 });
 Route::get('/blog','blogController@index');
+
+Route::get('/blog/create','blogController@create');
+Route::post('/blog','blogController@store');
+
 Route::get('/blog/{id}','blogController@show');
+
+Route::get('/blog/{id}/delete','blogController@destroy');
+
+Route::get('/blog/{id}/formEdit','blogController@formEdit');
+Route::put('/blog/{id}','blogController@upadate');
