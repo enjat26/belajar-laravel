@@ -6,7 +6,7 @@
     <h1>Blog pertama</h1>
     <ul>
         @foreach ($rows as $r)
-            <li><a href="{{ 'blog/'.$r->Id }}">{{ $r->nama }}</a></li>
+            <li><a href="{{ 'blog/'.$r->id }}">{{ $r->nama }}</a></li>
         @endforeach
     </ul>
 @endsection
