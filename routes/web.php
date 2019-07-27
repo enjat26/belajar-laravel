@@ -39,6 +39,7 @@ route::prefix('admin')->group(function(){
         return 'haloooo';
     });
 });
+
 Route::get('/blog','blogController@index');
 
 Route::get('/blog/create','blogController@create');
